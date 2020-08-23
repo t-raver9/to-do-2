@@ -1,0 +1,54 @@
+html,
+body {
+    font-family: 'Roboto';
+    background-color: #fffee9;
+}
+h1 {
+    font-family: 'Montserrat';
+}
+#containerHeader {
+    display: flex;
+    font-family: 'Montserrat';
+}
+#containerHeader > #projectsHeader {
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+    width: 300px;
+}
+#containerHeader > #projectsHeader > button {
+    display: inline-flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-left: 15px;
+    padding-top: 1px;
+    width: 18px;
+    height: 18px;
+    background-color: #a8a676;
+    border: none;
+    border-radius: 50%;
+    color: #fffee9;
+    font-size: 12px;
+    cursor: pointer;
+}
+#containerHeader > #toDosHeader {
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+    flex: 1;
+}
+#containerHeader > #toDosHeader > button {
+    display: inline-flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-left: 15px;
+    padding-top: 1px;
+    width: 18px;
+    height: 18px;
+    background-color: #a8a676;
+    border: none;
+    border-radius: 50%;
+    color: #fffee9;
+    font-size: 12px;
+    cursor: pointer;
+}
