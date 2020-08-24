@@ -1,54 +1,156 @@
 html,
 body {
-    font-family: 'Roboto';
-    background-color: #fffee9;
+  font-family: "Roboto";
+  background-color: #fffee9;
 }
 h1 {
-    font-family: 'Montserrat';
+  font-family: "Montserrat";
 }
 #containerHeader {
-    display: flex;
-    font-family: 'Montserrat';
+  display: flex;
+  font-family: "Montserrat";
 }
 #containerHeader > #projectsHeader {
-    display: flex;
-    align-items: center;
-    min-height: 30px;
-    width: 300px;
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  width: 300px;
 }
 #containerHeader > #projectsHeader > button {
-    display: inline-flex;
-    justify-content: center;
-    box-sizing: border-box;
-    margin-left: 15px;
-    padding-top: 1px;
-    width: 18px;
-    height: 18px;
-    background-color: #a8a676;
-    border: none;
-    border-radius: 50%;
-    color: #fffee9;
-    font-size: 12px;
-    cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-left: 15px;
+  padding-top: 1px;
+  width: 18px;
+  height: 18px;
+  background-color: #a8a676;
+  border: none;
+  border-radius: 50%;
+  color: #fffee9;
+  font-size: 12px;
+  cursor: pointer;
+}
+#containerHeader > #projectsHeader > #projectForm {
+  display: none;
+  align-items: center;
+  width: 216;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #ecb984;
+  border: none;
+  border-radius: 20px;
+  margin-top: 300px;
+  margin-left: 150px;
+  position: absolute;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+#projectForm > #projectNameWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+}
+#projectNameWrapper > input {
+  width: 80%;
+  font-family: "Roboto";
+}
+#projectForm > #dueDateWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+#dueDateWrapper > input {
+  width: 80%;
+}
+#dueDateWrapper > input[type="date"] {
+  font-family: "Roboto";
+  width: 80%;
+}
+#projectForm > textarea {
+  margin-top: 20px;
+  resize: none;
+  font-family: "Roboto";
+  font-size: small;
+}
+#projectForm > #confirmProjectWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+#confirmProjectWrapper > .material-icons {
+  cursor: pointer;
 }
 #containerHeader > #toDosHeader {
-    display: flex;
-    align-items: center;
-    min-height: 30px;
-    flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  flex: 1;
 }
 #containerHeader > #toDosHeader > button {
-    display: inline-flex;
-    justify-content: center;
-    box-sizing: border-box;
-    margin-left: 15px;
-    padding-top: 1px;
-    width: 18px;
-    height: 18px;
-    background-color: #a8a676;
-    border: none;
-    border-radius: 50%;
-    color: #fffee9;
-    font-size: 12px;
-    cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-left: 15px;
+  padding-top: 1px;
+  width: 18px;
+  height: 18px;
+  background-color: #a8a676;
+  border: none;
+  border-radius: 50%;
+  color: #fffee9;
+  font-size: 12px;
+  cursor: pointer;
+}
+#container {
+  display: flex;
+}
+#container > #projectsContainer {
+  width: 300px;
+  margin-top: 15px;
+}
+#container > #toDoContainer {
+  flex: 1;
+  margin-top: 15px;
+}
+#projectsContainer > .project {
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+  width: 97%;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 12px;
+  min-height: 30px;
+  box-sizing: border-box;
+}
+#toDoContainer > .toDo {
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+  width: 50%;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 12px;
+  min-height: 30px;
+  box-sizing: border-box;
+}
+.fa.fa-trash {
+  margin-left: auto;
+  margin-right: 15px;
+  color: #963a2f;
 }
