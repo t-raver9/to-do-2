@@ -1,3 +1,3 @@
-import { showProjectForm } from './projectForm';
+import { projectFormController } from './projectForm';
 
-showProjectForm();
+projectFormController();
