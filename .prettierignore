@@ -1,8 +1,0 @@
-# Ignore artifacts:
-.gitignore
-.ellintrc
-package.json
-package-lock.json
-webpack.config.js
-node_modules/
-dist/main.js

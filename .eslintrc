@@ -1,14 +1,16 @@
 {
-  "extends": [
-      "airbnb",
-      "prettier"
-    ],
-  "env": {
-    "node": true,
-    "es6": true,
-    "browser": true
-  },
+  "extends": ["wesbos"],
   "rules": {
-    // your custom rules here
-  }
+    "no-console": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 120,
+        "tabWidth": 8
+      }
+    ]
+  },
+  "no-param-reassign": "off"
 }

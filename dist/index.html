@@ -1,30 +1,84 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>To-Do 2</title>
-        <link href="style.css" rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css?family=Roboto"
-            href="https://fonts.googleapis.com/css?family=Montserrat"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <h1>To-Do</h1>
-        <div id="containerHeader">
-            <div id="projectsHeader">
-                Projects
-                <button>+</button>
-            </div>
-            <div id="toDosHeader">
-                To Dos
-                <button>+</button>
-            </div>
+  <head>
+    <title>To-Do 2</title>
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <h1>To-Do</h1>
+    <div id="containerHeader">
+      <div id="projectsHeader">
+        Projects
+        <button id="addProjectButton">+</button>
+        <div id="projectForm">
+          <div id="projectNameWrapper">
+            <input
+              type="text"
+              id="projName"
+              name="projName"
+              placeholder="Name"
+            />
+          </div>
+          <div id="dueDateWrapper">
+            <input
+              type="text"
+              id="dueDate"
+              name="dueDate"
+              placeholder="Due date (optional)"
+              onmouseover="(this.type='date')"
+              onmouseout="(this.type='text')"
+            />
+          </div>
+          <label for="projDescription"></label>
+          <textarea
+            id="projDescription"
+            name="projDescription"
+            placeholder="What is this project about?"
+            style="height:200px"
+          ></textarea>
+          <div id="confirmProjectWrapper">
+            <span class="material-icons">
+              check
+            </span>
+            <span class="material-icons">
+              not_interested
+            </span>
+          </div>
         </div>
-    </body>
-    <script src="main.js"></script>
+      </div>
+      <div id="toDosHeader">
+        Items
+        <button>+</button>
+      </div>
+    </div>
+    <div id="container">
+      <div id="projectsContainer">
+        <div class="project">All Items</div>
+      </div>
+      <div id="toDoContainer">
+        <div class="toDo">
+          To-Do
+          <i class="fa fa-trash"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
 </html>
