@@ -19,9 +19,9 @@ const projectFormController = (() => {
 
             check.addEventListener('click', () => {
                 if (checkValidEntry()) {
-                    const name = document.getElementById('projName');
-                    const date = document.getElementById('dueDate');
-                    const projDesc = document.getElementById('projDescription');
+                    const name = document.getElementById('projName').value;
+                    const date = document.getElementById('dueDate').value;
+                    const projDesc = document.getElementById('projDescription').value;
                     const project = projectFactory(name, date, projDesc);
                     projectList.addProject(project);
                     clearForm();
