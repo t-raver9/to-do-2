@@ -1,12 +1,30 @@
-const projectFactory = projectName => {
-        let projectName = projectName
+const projectFactory = (name, date = null, description = null) => {
+        let projectName = name
+        let dueDate = date;
+        let projectDescription = description;
         let toDos = [];
-        
+
         const getProjectName = () => projectName;
 
         const changeProjectName = newName => {
             projectName = newName;
         };
+
+        const setDueDate = (date) => {
+                dueDate = date;
+        }
+
+        const getDueDate = () => {
+                return dueDate;
+        }
+
+        const setProjectDescription = (description) => {
+                projectDescription = description;
+        }
+
+        const getProjectDescription = () => {
+                return projectDescription;
+        }
 
         const addToDo = toDo => {
                 toDos.push(toDo);
@@ -17,7 +35,9 @@ const projectFactory = projectName => {
         };
 
         const getToDos = () => toDos;
-        return { getProjectName, changeProjectName, addToDo, getToDos, deleteToDo };
+        return { getProjectName, changeProjectName, setDueDate, getDueDate,
+                setProjectDescription, getProjectDescription, addToDo,
+                getToDos, deleteToDo };
 };
 
 export { projectFactory };
