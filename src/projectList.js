@@ -1,4 +1,5 @@
 import { projectFactory } from './project';
+import { EIDRM } from 'constants';
 
 const projectList = (() => {
     let projects = [];
@@ -86,7 +87,22 @@ const projectListDom = (() => {
         projectDomEl.addEventListener('click', () => {
             projectList.setActiveProject(project.getProjectName());
             setActiveProject(projectDomEl);
+        });
+
+        // Add due date display
+        let daysLeft = (project.getDueDate()) ? daysUntilDue(project.getDueDate()) : 'No date set';
+        let dueDateDisplay = document.createElement('div');
+        dueDateDisplay.setAttribute('id','dueDateDisplay');
+        dueDateDisplay.textContent = daysLeft;
+        projectDomEl.appendChild(dueDateDisplay);
+
+        // Add edit button
+        let editButton = createEditButton();
+        editButton.addEventListener('click', e => {
+            editProject(project);
+            e.stopPropagation(); // Prevent changing active project
         })
+        projectDomEl.appendChild(editButton);
 
         // Add a delete button
         let deleteButton = createDeleteButton('Project');
@@ -109,12 +125,24 @@ const projectListDom = (() => {
         projectDomEl.setAttribute('id', 'activeProject');
     });
 
+    const createEditButton = () => {
+        let editButton = document.createElement('span');
+        editButton.classList.add('material-icons');
+        editButton.classList.add('editButton');
+        editButton.innerHTML = 'post_add';
+        return editButton;
+    }
+
     const createDeleteButton = () => {
         let deleteButton = document.createElement('i');
         deleteButton.classList.add('fa');
         deleteButton.classList.add('fa-trash');
         return deleteButton;
     };
+
+    const editProject = () => {
+        console.log('Editing project...');
+    }
 
     const deleteProject = projectDomEl => {
         // If the project being deleted is the active
@@ -125,6 +153,23 @@ const projectListDom = (() => {
             projectContainer.firstElementChild.setAttribute('id','activeProject');
         }
         projectDomEl.parentNode.removeChild(projectDomEl);
+    };
+
+    const daysUntilDue = date => {
+        const currentDate = new Date();
+        const dueYear = date.split('-')[0];
+        const dueMonth = date.split('-')[1] - 1; // JS counts months from zero, lol
+        const dueDay = date.split('-')[2];
+        const due = new Date(dueYear, dueMonth, dueDay);
+        const oneDay = 24 * 60 * 60 * 1000;
+        let diffDays = Math.round((due - currentDate) / oneDay);
+        if (diffDays < 0) {
+            return 'Overdue';
+        } else if (diffDays > 99) {
+            return '> 99 days';
+        } else {
+            return diffDays.toString(10) + ' days';
+        }
     }
 
     return { addProject, instantiateDefaultProject };
