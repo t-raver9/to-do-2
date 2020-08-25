@@ -58,6 +58,8 @@ h1 {
 #projectNameWrapper > input {
   width: 80%;
   font-family: "Roboto";
+  border-style: solid;
+  border-color: white;
 }
 #projectForm > #dueDateWrapper {
   display: flex;
@@ -74,12 +76,16 @@ h1 {
 #dueDateWrapper > input[type="date"] {
   font-family: "Roboto";
   width: 80%;
+  border-style: solid;
+  border-color: white;
 }
 #projectForm > textarea {
   margin-top: 20px;
   resize: none;
   font-family: "Roboto";
   font-size: small;
+  border-style: solid;
+  border-color: white;
 }
 #projectForm > #confirmProjectWrapper {
   display: flex;
@@ -88,7 +94,7 @@ h1 {
   align-items: center;
   padding-top: 20px;
   width: 100%;
-  overflow-x: auto;
+  min-height: min-content;
 }
 #confirmProjectWrapper > .material-icons {
   cursor: pointer;
