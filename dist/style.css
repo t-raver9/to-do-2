@@ -41,7 +41,7 @@ h1 {
   background-color: #ecb984;
   border: none;
   border-radius: 20px;
-  margin-top: 300px;
+  margin-top: 700px;
   margin-left: 150px;
   position: absolute;
   overflow-x: auto;
@@ -160,7 +160,7 @@ h1 {
   min-height: 30px;
   box-sizing: border-box;
 }
-#dueDateDisplay {
+.dueDateDisplay {
   margin-left: auto;
   font-family: "VT323", monospace;
   font-size: small;

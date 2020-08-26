@@ -1,4 +1,5 @@
 import { projectFactory } from './project';
+import { projectFormController } from './projectForm';
 import { EIDRM } from 'constants';
 
 const projectList = (() => {
@@ -15,6 +16,10 @@ const projectList = (() => {
         projects.push(project);
         setActiveProject(project.getProjectName());
         projectListDom.addProject(project);
+    }
+
+    const editProject = project => {
+        projectFormController.projectFormEdit(project);
     }
 
     const deleteProject = projectName => {
@@ -59,7 +64,7 @@ const projectList = (() => {
     const getProjects = () => {
         return projects;
     }
-    return { addProject, instantiateDefaultProject, deleteProject, findToDo, setActiveProject, 
+    return { addProject, editProject, instantiateDefaultProject, deleteProject, findToDo, setActiveProject, 
         getActiveProject, getProjects };
 })();
 
@@ -92,14 +97,14 @@ const projectListDom = (() => {
         // Add due date display
         let daysLeft = (project.getDueDate()) ? daysUntilDue(project.getDueDate()) : 'No date set';
         let dueDateDisplay = document.createElement('div');
-        dueDateDisplay.setAttribute('id','dueDateDisplay');
+        dueDateDisplay.classList.add('dueDateDisplay');
         dueDateDisplay.textContent = daysLeft;
         projectDomEl.appendChild(dueDateDisplay);
 
         // Add edit button
         let editButton = createEditButton();
         editButton.addEventListener('click', e => {
-            editProject(project);
+            projectList.editProject(project);
             e.stopPropagation(); // Prevent changing active project
         })
         projectDomEl.appendChild(editButton);
@@ -140,8 +145,19 @@ const projectListDom = (() => {
         return deleteButton;
     };
 
-    const editProject = () => {
-        console.log('Editing project...');
+    const editProject = (project, originalName) => {
+        // Search for this project in the DOM
+        let projectDOMs = document.getElementsByClassName('project');
+        // Update DOM with new details
+        for (let i=0; i<projectDOMs.length; i++) {
+            if (originalName == projectDOMs[i].firstChild.textContent) {
+                projectDOMs[i].firstChild.textContent = `${project.getProjectName()}`;
+                let dateEls = projectDOMs[i].getElementsByClassName('dueDateDisplay');
+                let dateEl = dateEls[0];
+                let daysLeft = (project.getDueDate()) ? daysUntilDue(project.getDueDate()) : 'No date set';
+                dateEl.textContent = daysLeft;
+            }
+        }
     }
 
     const deleteProject = projectDomEl => {
@@ -172,7 +188,7 @@ const projectListDom = (() => {
         }
     }
 
-    return { addProject, instantiateDefaultProject };
+    return { addProject, instantiateDefaultProject, editProject };
 })();
 
-export { projectList };
+export { projectList, projectListDom };
