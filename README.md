@@ -1,5 +1,5 @@
 # to-do-2
-A simple to-do web app. I've been picking up some Javascript in isolation here in Melbourne - this has proved to be a good practice project.
+A simple to-do web app. You can play with a demo here: http://t-raver9.github.io/to-do-2/ 
 
 ![](demo.gif)
 
