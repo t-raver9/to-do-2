@@ -31,6 +31,7 @@ h1 {
   font-size: 12px;
   cursor: pointer;
 }
+/* Project form */
 #containerHeader > #projectsHeader > #projectForm {
   display: none;
   align-items: center;
@@ -99,6 +100,75 @@ h1 {
 #confirmProjectWrapper > .material-icons {
   cursor: pointer;
 }
+/* To-do form */
+#containerHeader > #toDosHeader > #toDoForm {
+  display: none;
+  align-items: center;
+  width: 216;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #ecb984;
+  border: none;
+  border-radius: 20px;
+  margin-top: 700px;
+  margin-left: 150px;
+  position: absolute;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+#toDoForm > #toDoNameWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+}
+#toDoNameWrapper > input {
+  width: 80%;
+  font-family: "Roboto";
+  border-style: solid;
+  border-color: white;
+}
+#toDoForm > #toDoDueDateWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+#toDoDueDateWrapper > input {
+  width: 80%;
+}
+#toDoDueDateWrapper > input[type="date"] {
+  font-family: "Roboto";
+  width: 80%;
+  border-style: solid;
+  border-color: white;
+}
+#toDoForm > textarea {
+  margin-top: 20px;
+  resize: none;
+  font-family: "Roboto";
+  font-size: small;
+  border-style: solid;
+  border-color: white;
+}
+#toDoForm > #confirmToDoWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 20px;
+  width: 100%;
+  min-height: min-content;
+}
+#confirmToDoWrapper > .material-icons {
+  cursor: pointer;
+}
 #containerHeader > #toDosHeader {
   display: flex;
   align-items: center;
@@ -160,10 +230,23 @@ h1 {
   min-height: 30px;
   box-sizing: border-box;
 }
-.dueDateDisplay {
+.project > .dueDateDisplay {
   margin-left: auto;
   font-family: "VT323", monospace;
   font-size: small;
+}
+.toDo > .dueDateDisplay {
+  font-family: "VT323", monospace;
+  font-size: small;
+}
+.toDo > .checkbox {
+  margin-left: auto;
+  margin-right: 10px;
+  height: 10px;
+  width: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
 }
 .fa.fa-trash {
   margin-left: 10px;
@@ -174,4 +257,10 @@ h1 {
 .editButton {
   margin-left: 10px;
   cursor: pointer;
+}
+.done {
+  background-color: gray;
+}
+.checkboxDone {
+  background-color: black;
 }

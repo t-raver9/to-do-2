@@ -67,19 +67,48 @@
       </div>
       <div id="toDosHeader">
         Items
-        <button>+</button>
+        <button id="addToDoButton">+</button>
+        <!-- to-do form -->
+        <div id="toDoForm">
+          <div id="toDoNameWrapper">
+            <input
+              type="text"
+              id="toDoName"
+              name="toDoName"
+              placeholder="Name"
+            />
+          </div>
+          <div id="toDoDueDateWrapper">
+            <input
+              type="date"
+              id="toDoDueDate"
+              name="toDoDueDate"
+              placeholder="Due date (optional)"
+            />
+          </div>
+          <label for="toDoDescription"></label>
+          <textarea
+            id="toDoDescription"
+            name="toDoDescription"
+            placeholder="Enter details about the item here"
+            style="height:200px"
+          ></textarea>
+          <div id="confirmToDoWrapper">
+            <span class="material-icons" id="toDoCheck">
+              check
+            </span>
+            <span class="material-icons" id="toDoNotInterested">
+              not_interested
+            </span>
+          </div>
+        </div>
       </div>
     </div>
     <div id="container">
       <div id="projectsContainer">
-        <div class="project" id="activeProject">All Items</div>
+        <div class="project allItems" id="activeProject">All Items</div>
       </div>
-      <div id="toDoContainer">
-        <div class="toDo">
-          To-Do
-          <i class="fa fa-trash"></i>
-        </div>
-      </div>
+      <div id="toDoContainer"></div>
     </div>
   </body>
   <script src="main.js"></script>
