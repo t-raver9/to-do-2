@@ -73,7 +73,7 @@ const toDoDom = (() => {
             };
 
             // Add due date display
-            let daysLeft = (toDo.getDueDate()) ? daysUntilDue(toDo.getDueDate()) : 'No date set';
+            let daysLeft = (toDo.getDueDate()) ? projectListDom.daysUntilDue(toDo.getDueDate()) : 'No date set';
             let dueDateDisplay = document.createElement('div');
             dueDateDisplay.classList.add('dueDateDisplay');
             dueDateDisplay.textContent = daysLeft;
