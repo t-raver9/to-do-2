@@ -1,10 +1,11 @@
 import { projectFactory } from './project';
 import { projectFormController } from './projectForm';
 import { EIDRM } from 'constants';
+import { toDoDom } from './toDo';
 
 const projectList = (() => {
     let projects = [];
-    let activeProjectIdx = null;
+    let activeProjectIdx = 0;
 
     const instantiateDefaultProject = () => {
         const defaultProject = projectFactory('All Items');
@@ -61,11 +62,15 @@ const projectList = (() => {
         return (activeProjectIdx != null ) ? projects[activeProjectIdx] : null;
     }
 
+    const getDefaultProject = () => {
+        return projects[0];
+    }
+
     const getProjects = () => {
         return projects;
     }
     return { addProject, editProject, instantiateDefaultProject, deleteProject, findToDo, setActiveProject, 
-        getActiveProject, getProjects };
+        getActiveProject, getDefaultProject, getProjects };
 })();
 
 const projectListDom = (() => {
@@ -128,6 +133,11 @@ const projectListDom = (() => {
         oldActive.removeAttribute('id');
         // Add the active id to the new project
         projectDomEl.setAttribute('id', 'activeProject');
+        // Remove the existing to-dos from the DOM, as they're
+        // from the previously active project
+        toDoDom.clearToDoDom();
+        // Render the to-dos that sit in this project
+        toDoDom.renderToDoDom();
     });
 
     const createEditButton = () => {
@@ -188,7 +198,7 @@ const projectListDom = (() => {
         }
     }
 
-    return { addProject, instantiateDefaultProject, editProject };
+    return { addProject, instantiateDefaultProject, editProject, daysUntilDue };
 })();
 
 export { projectList, projectListDom };
